@@ -1,0 +1,11 @@
+<% @job = Job.find(params[:id]) %>
+<div>
+	<div><%= @job.name %></div>
+  <div>Description:<%= @job.description %></div>
+  <div>Origin:<%= @job.origin %></div>
+  <div>Destination:<%= @job.destination %></div>
+  <div>Containers needed:<%= @job.job_containers %></div>
+  <div>Price:<%= @job.cost %></div>
+</div>
+
+<hr>
