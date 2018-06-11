@@ -9,27 +9,30 @@ class BoatsController < ApplicationController
 
   def create
     boat = Boat.new(boat_params)
-    @job.id = params[:job_id]
+    boat.user_id = current_user.id
     if boat.save
-      redirect_to "/"
+      redirect_to "/boats"
     else
       render "/boats/new"
     end
   end
 
   def show
+    @boat = Boat.find(params[:id])
   end
 
   def edit
   end
 
   def destroy
+    @boat = Boat.destroy(params[:id])
+    redirect_to "/"
   end
 
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :user_id, :description, :origin, :cost, :destination, :job_containers)
+    params.require(:boat).permit(:name, :location, :user_id, :boat_containers)
   end
 
 end
