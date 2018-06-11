@@ -1,0 +1,14 @@
+<h1>All Jobs</h1>
+
+
+<% @jobs.each_with_index do |j, index| %>
+<div>
+	<div><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></div>
+  <div>Description:<%= j.description %></div>
+  <div>Origin:<%= j.origin %></div>
+  <div>Destination:<%= j.destination %></div>
+  <div>Containers needed:<%= j.job_containers %></div>
+  <div>Price:<%= j.cost %></div>
+</div>
+<hr>
+<% end %>
