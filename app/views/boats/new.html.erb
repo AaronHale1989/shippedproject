@@ -1,0 +1,8 @@
+<h2>Build New Boat</h2>
+
+<%= form_for @boat do |f| %>
+  <div>Name: <%= f.text_field :name %></div>
+  <div>Location: <%= f.text_field :location %></div>
+  <div>Capacity <%= f.text_field :boat_containers %></div>
+  <%= f.submit %>
+<% end %>
