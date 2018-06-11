@@ -1,0 +1,8 @@
+<h2>List of Boats</h2>
+
+<% @boats.each do |b| %>
+<div>Name: <a href="/boats/<%= b.id %>"><%= b.name %></a></div>
+<div>Location: <%= b.location %></div>
+<div>Capacity: <%= b.boat_containers %></div>
+<hr>
+<% end %>
