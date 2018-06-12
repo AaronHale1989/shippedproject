@@ -16,27 +16,35 @@ class JobsController < ApplicationController
     render "/jobs/new"
   end
 end
-  end
+
 
   def show
     @job = Job.find(params[:id])
-    @boats = Boat.find(current_user.id)
+    @boats = Boat.find_by(id: current_user.id)
   end
 
   def edit
+    @job = Job.find(params[:id])
   end
 
-  def assign
-  	# j = Job.find(params[:id])
-  	# j.boat_id = params[:]
-  	# if j.update
-  	# 	redirect_to "/"
-  	# else
-  	# 	render "/doctors"
-  	# end
+  def update
+    @job = Job.find(params[:id])
+    if @job.update(job_params)
+      redirect_to "/"
+    else
+      render edit_job_path
+    end
+  end
+
+  def destroy
+    job = Job.find(params[:id])
+    job.destroy
+    redirect_to jobs_path(:id => current_user.id)
   end
 
   private
     def job_params
-    params.require(:job).permit(:name, :description, :origin, :destination, :job_containers, :cost, :boat_id)
+    params.require(:job).permit(:name, :description, :origin, :destination, :job_containers, :cost)
   end
+
+end

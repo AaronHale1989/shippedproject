@@ -17,7 +17,7 @@
     <li><a href="/boats/new">Create Boat</a></li>
     <li><a href="/boats">Boat List</a></li>
     <li><a href="/jobs/new">Create Job</a></li>
-    <li><%= link_to "Log out", "/users/sign_out", {method: delete}  %></li>
+    <li><%= link_to "Log Out", destroy_user_session_path, {method: "delete"} %></li>
   <% end %>
 
   <% if !user_signed_in? %>

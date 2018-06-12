@@ -1,4 +1,5 @@
 <% @job = Job.find(params[:id]) %>
+<% @boats = Boat.all %>
 <div>
 	<div><%= @job.name %></div>
   <div>Description:<%= @job.description %></div>
@@ -7,5 +8,16 @@
   <div>Containers needed:<%= @job.job_containers %></div>
   <div>Price:<%= @job.cost %></div>
 </div>
+<% if @job.user_id == current_user.id %>
+<a href="/jobs/<%= @job.id %>/edit">Edit</a>
+<% end %>
 
 <hr>
+
+<%@boats = Boat.where(:user_id => current_user.id)%>
+<%= form_for :schedule, url: {action: "assign", controller: "schedules"} do |f| %>
+  <%= f.datetime_field :start %>
+  <%= f.select :boat_id, options_from_collection_for_select(@boats, "id", "name") %>
+  <%= hidden_field_tag "job_id", @job.id %>
+  <%= f.submit %>
+<% end %>

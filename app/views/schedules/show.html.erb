@@ -1,0 +1,8 @@
+<h2>Create </h2>
+
+<%= form_for :schedule, url: {action: "assign", controller: "schedules"} do |f| %>
+  <%= f.datetime_field :start %>
+  <%= f.select :boat_id, options_from_collection_for_select(@boats, "id", "name") %>
+  <%= hidden_field_tag "job_id", @job.id %>
+  <%= f.submit %>
+<% end %>
