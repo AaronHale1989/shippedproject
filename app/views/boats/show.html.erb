@@ -1,6 +1,16 @@
 <h2><%=@boat.name%></h2>
+<div> <%= image_tag @boat.image.url(:thumb) %></div>
 
 <div>Location: <%= @boat.location %></div>
 <div>Capacity:  <%= @boat.boat_containers %></div>
 
+
 <div><%= link_to "Retire Boat", boat_path, {method: :delete}%> </div>
+
+<div>
+  <%= form_for @boat, html: { multipart: true } do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image, class: 'form-control' %>
+  <%= f.submit 'Upload Photo', class: 'btn btn-default' %>
+  <% end %>
+</div>
