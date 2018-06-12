@@ -8,6 +8,9 @@
   <div>Containers needed:<%= @job.job_containers %></div>
   <div>Price:<%= @job.cost %></div>
 </div>
+<% if @job.user_id == current_user.id %>
+<a href="/jobs/<%= @job.id %>/edit">Edit</a>
+<% end %>
 
 <hr>
 
