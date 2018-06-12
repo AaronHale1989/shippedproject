@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-
-  resources :jobs
-  devise_for :users
+ 
   root "jobs#index"
+
+  devise_for :users
+  
+  resources :jobs
   resources :users
   resources :boats
   resources :schedules
