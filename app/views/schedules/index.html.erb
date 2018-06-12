@@ -1,0 +1,9 @@
+<h2>Trips</h2>
+
+<% @schedules.each do |s| %>
+  <div><%= s.start.strftime("%B %e, %Y at %I:%M %p") %></div>
+    <div><%= s.boat.name %></div>
+    <div><%= s.job.name %></div>
+    <hr>
+
+<% end %>
