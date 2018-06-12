@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def index
     @jobs = Job.all
+    # @job = 
   end
 
   def new
@@ -21,6 +22,7 @@ end
   def show
     @job = Job.find(params[:id])
     @boats = Boat.find_by(id: current_user.id)
+
   end
 
   def edit

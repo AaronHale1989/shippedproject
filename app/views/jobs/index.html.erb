@@ -11,8 +11,9 @@
   <div>Price:<%= j.cost %></div>
 </div>
 <h2>Scheduled Pickups</h2>
-<% j.schedules do |s| %>
-<div>Scheduled start:<%= s.start %></div>
-<% end %>
+	<div><%= j.schedules %></div>
+	<% j.schedules do |s| %>
+		<div>Scheduled start:<%= s.boat_id %></div>
+	<% end %>
 <hr>
 <% end %>
