@@ -10,5 +10,9 @@
   <div>Containers needed:<%= j.job_containers %></div>
   <div>Price:<%= j.cost %></div>
 </div>
+<h2>Scheduled Pickups</h2>
+<% j.schedules do |s| %>
+<div>Scheduled start:<%= s.start %></div>
+<% end %>
 <hr>
 <% end %>
