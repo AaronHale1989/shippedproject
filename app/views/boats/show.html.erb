@@ -1,0 +1,6 @@
+<h2><%=@boat.name%></h2>
+
+<div>Location: <%= @boat.location %></div>
+<div>Capacity:  <%= @boat.boat_containers %></div>
+
+<div><%= link_to "Retire Boat", boat_path, {method: :delete}%> </div>

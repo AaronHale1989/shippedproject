@@ -5,11 +5,30 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
   </head>
 
   <body>
+<nav>
+  <li> <a href="/">Home</a></li>
+
+  <% if user_signed_in? %>
+  <li> <a href="/users/:id">User Page</a> </li>
+    <li><a href="/boats/new">Create Boat</a></li>
+    <li><a href="/boats">Boat List</a></li>
+    <li><a href="/jobs/new">Create Job</a></li>
+    <li><%= link_to "Log out", "/users/sign_out", {method: delete}  %></li>
+  <% end %>
+
+  <% if !user_signed_in? %>
+    <li><a href="/users/sign_up">Sign Up</a></li>
+    <li> <a href="/users/sign_in">Log In</a> </li>
+  <% end %>
+
+
+
+</nav>
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
