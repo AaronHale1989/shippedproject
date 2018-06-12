@@ -20,7 +20,7 @@ end
 
   def show
     @job = Job.find(params[:id])
-    @boats = Boat.find(current_user.id)
+    @boats = Boat.find_by(id: current_user.id)
   end
 
   def edit
@@ -44,7 +44,7 @@ end
 
   private
     def job_params
-    params.require(:job).permit(:name, :description, :origin, :destination, :job_containers, :cost, :boat_id)
+    params.require(:job).permit(:name, :description, :origin, :destination, :job_containers, :cost)
   end
 
 end
