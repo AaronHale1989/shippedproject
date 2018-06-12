@@ -1,2 +1,14 @@
-<h1>Jobs#edit</h1>
-<p>Find me in app/views/jobs/edit.html.erb</p>
+<% @job = Job.find(params[:id]) %>
+<div>
+<%= form_for @job do |f| %>
+<div>Title: <%= f.text_field :name %></div>
+<div>Description: <%= f.text_field :description %></div>
+<div>Origin: <%= f.text_field :origin %></div>
+<div>Destination: <%= f.text_field :destination %></div>
+<div># of Containers needed: <%= f.text_field :job_containers %></div>
+<div>Price: <%= f.text_field :cost %></div>
+    <div><%= f.submit "make changes"%></div>
+<%end%>
+<%= link_to 'Delete', job_path(@job), method: :delete,
+                         data: { confirm: 'Are you sure?' } %>
+</div>
