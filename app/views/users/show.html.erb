@@ -1,3 +1,16 @@
 <h2>Profile</h2>
 
-<h3><%= @user.username %></h3>
+
+
+<h2 class="subtitle is-5"><strong><%= @user.job.count %></strong> Jobs</h2>
+<%= render @user.job %>
+    <hr />
+     <%= render 'job/index' %>
+</div>
+
+
+<h2 class="subtitle is-5"><strong><%= @user.boat.count %></strong> Boats</h2>
+<%= render @user.boat%>
+    <hr />
+     <%= render 'boat/index' %>
+</div>
