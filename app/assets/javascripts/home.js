@@ -16,5 +16,4 @@ var start = Date.now();
   boat.style.left = timePassed / 5 + 'px';
 
   if (timePassed > 5000) clearInterval(timer);
-
 }, 10);

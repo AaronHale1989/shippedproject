@@ -7,10 +7,25 @@
     <hr />
      <%= render 'job/index' %>
 </div>
+<h4>Scheduled Pickups</h4>
+	<% j.schedules.each do |s| %>
+		<div>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
+		<div>Boat:<%= Boat.find(s.boat_id).name %></div>
+		<div>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
+		<hr>
+	<% end %>
+<% end %>
 
+<hr>
+<h2>Your Boats</h2>
+<% @user.boats.each_with_index do |b, index| %>
+  <h2><a href='/boats/<%= b.id %>'><%= index + 1 %>. <%= b.name %></a></h2>
 
-<h2 class="subtitle is-5"><strong><%= @user.boat.count %></strong> Boats</h2>
-<%= render @user.boat%>
-    <hr />
-     <%= render 'boat/index' %>
-</div>
+  <h4>Scheduled Trips</h4>
+  <% b.schedules.each do |s| %>
+    <div><a href='/jobs/<%= Job.find(s.job_id).id %>'>Job: <%= Job.find(s.job_id).name %></a></div>
+    <div>Origin: <%= Job.find(s.job_id).origin %></div>
+    <div>Cost: <%= Job.find(s.job_id).cost %></div>
+    <div>Scheduled start date: <%= s.start.strftime("%m/%d/%Y") %></div>
+  <% end %>
+<% end %>
