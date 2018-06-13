@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-   
+
   </head>
 
   <body>
@@ -13,7 +13,7 @@
   <li> <a href="/">Home</a></li>
 
   <% if user_signed_in? %>
-  <li> <a href="/users/:id">User Page</a> </li>
+  <li> <a href="/users/<%= current_user.id %>">User Page</a> </li>
     <li><a href="/boats/new">Create Boat</a></li>
     <li><a href="/boats">Boat List</a></li>
     <li><a href="/jobs/new">Create Job</a></li>
