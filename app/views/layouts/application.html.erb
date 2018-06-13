@@ -5,10 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-   
+
   </head>
 
   <body>
+    <img id="boat" src="https://thumbs.dreamstime.com/b/cartoon-boat-19593732.jpg" height="70px" width="70px" >
 <nav>
   <li> <a href="/">Home</a></li>
 
@@ -32,5 +33,6 @@
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= javascript_include_tag "home"%>
   </body>
 </html>
