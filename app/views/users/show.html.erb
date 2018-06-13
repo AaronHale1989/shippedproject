@@ -1,14 +1,12 @@
 <h2>Profile</h2>
 <div> <%= link_to 'Edit Profile Information', edit_user_registration_path %></div>
 
-<% @user.jobs.each_with_index do |j, index| %>
-<div>
-  <h2><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></h2>
-  <div>Description:<%= j.description %></div>
-  <div>Origin:<%= j.origin %></div>
-  <div>Destination:<%= j.destination %></div>
-  <div>Containers needed:<%= j.job_containers %></div>
-  <div>Price:<%= j.cost %></div>
+
+
+<h2 class="subtitle is-5"><strong><%= @user.jobs.count %></strong> Jobs</h2>
+<%= render @user.jobs %>
+    <hr />
+     <%= render 'job/index' %>
 </div>
 <h4>Scheduled Pickups</h4>
 	<% j.schedules.each do |s| %>

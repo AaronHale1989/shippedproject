@@ -7,16 +7,13 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
   </head>
-
   <body>
     <div id="boat"><%= image_tag "boat.png" %></div>
     <strong>Steam Cargo</strong>
 <nav>
 
-<section class="hero is-primary is-medium">
+<section class="hero is-warning is-medium">
 	  <!-- Hero head: will stick at the top -->
 	  <div class="hero-head">
 	    <nav class="navbar">
@@ -39,7 +36,6 @@
                 <%= link_to "Boats List", boats_path, class:"navbar-item" %>
                 <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
               <% end %>
-
               <% if !user_signed_in? %>
                 <li><a href="/users/sign_up">Sign Up</a></li>
                 <li> <a href="/users/sign_in">Log In</a> </li>
@@ -60,7 +56,6 @@
 	    </div>
 	  </div>
 	</section>
-
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
