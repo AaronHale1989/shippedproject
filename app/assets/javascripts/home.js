@@ -13,8 +13,8 @@ var start = Date.now();
  var timer = setInterval(function() {
   var timePassed = Date.now() - start;
 
-  boat.style.left = timePassed / 2 + 'px';
+  boat.style.left = timePassed / 4 + 'px';
 
-  if (timePassed > 2000) clearInterval(timer);
+  if (timePassed > 4000) clearInterval(timer);
 
-}, 20);
+}, 10);
