@@ -33,17 +33,17 @@
 	          <div class="navbar-end">
               <% if user_signed_in? %>
               <%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
-               <li> <a href="/users/:id">User Page</a> </li>
+                <a href="/users/<%=current_user.id%>">Profile Page</a>
                 <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
                 <%= link_to "Boats List", boats_path, class:"navbar-item" %>
-                <li><%= link_to "Log Out", destroy_user_session_path, {method: "delete"} %></li>
+                <%= link_to "Log Out", destroy_user_session_path, {method: "delete"} %>
               <% end %>
-            
+
               <% if !user_signed_in? %>
                 <li><a href="/users/sign_up">Sign Up</a></li>
                 <li> <a href="/users/sign_in">Log In</a> </li>
               <% end %>
-  	
+
 	          </div>
 	        </div>
 	      </div>
