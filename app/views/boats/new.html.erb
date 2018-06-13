@@ -1,8 +1,12 @@
 <h2>Build New Boat</h2>
 
-<%= form_for @boat do |f| %>
-  <div>Name: <%= f.text_field :name %></div>
-  <div>Location: <%= f.text_field :location %></div>
-  <div>Capacity <%= f.text_field :boat_containers %></div>
-  <%= f.submit %>
+
+
+<%= form_for @boat, html: { multipart: true } do |f| %>
+<div>Name: <%= f.text_field :name %></div>
+<div>Location: <%= f.text_field :location %></div>
+<div>Capacity <%= f.text_field :boat_containers %></div>
+<%= f.label :image %>
+<%= f.file_field :image, class: 'form-control' %>
+<%= f.submit  %>
 <% end %>
