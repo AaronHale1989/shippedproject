@@ -1,4 +1,5 @@
-<h2>Profile</h2>
+<h2><strong>Profile</strong></h2>
+<%=@user.username%>
 <div> <%= link_to 'Edit Profile Information', edit_user_registration_path %></div>
 
 <% @user.jobs.each_with_index do |j, index| %>

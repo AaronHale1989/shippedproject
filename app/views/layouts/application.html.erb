@@ -13,7 +13,7 @@
 
   <body>
     <div id="boat"><%= image_tag "boat.png" %></div>
-    <strong>Steam Cargo</strong>
+    <div id="page-title"><strong>Steam Cargo</strong></div>
 <nav>
 
 <section class="hero is-primary is-medium">
@@ -37,7 +37,7 @@
                 <a href="/users/sign_out"></a>
                 <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
                 <%= link_to "Boats List", boats_path, class:"navbar-item" %>
-                <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
               <% end %>
 
               <% if !user_signed_in? %>
