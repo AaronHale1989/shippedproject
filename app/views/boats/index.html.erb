@@ -4,5 +4,6 @@
 <div>Name: <a href="/boats/<%= b.id %>"><%= b.name %></a></div>
 <div>Location: <%= b.location %></div>
 <div>Capacity: <%= b.boat_containers %></div>
+<div>Owner: <a href='/users/<%= User.find(b.user_id) .id <%= User.find(b.user_id).username %></a></div>
 <hr>
 <% end %>
