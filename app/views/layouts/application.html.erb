@@ -7,13 +7,10 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
   </head>
-
   <body>
     <img id="boat" src="https://thumbs.dreamstime.com/b/cartoon-boat-19593732.jpg" height="70px" width="70px" >
-    <strong>Steam Cargo</strong>
+     <strong>Steam Cargo</strong>
 <nav>
 
 <section class="hero is-primary is-medium">
@@ -36,9 +33,8 @@
                <li> <a href="/users/:id">User Page</a> </li>
                 <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
                 <%= link_to "Boats List", boats_path, class:"navbar-item" %>
-                <li><%= link_to "Log Out", destroy_user_session_path, {method: "delete"} %></li>
+                <%= link_to "Log Out", destroy_user_session_path, {method: "delete"} %>
               <% end %>
-            
               <% if !user_signed_in? %>
                 <li><a href="/users/sign_up">Sign Up</a></li>
                 <li> <a href="/users/sign_in">Log In</a> </li>
