@@ -7,6 +7,8 @@
 var boat = document.getElementById("boat")
 
 boat.style.position = "relative"
+boat.style.width = "70px"
+boat.style.height = "70px"
 
 var start = Date.now();
 
