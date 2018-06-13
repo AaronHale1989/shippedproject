@@ -3,12 +3,18 @@
 
 <% @jobs.each_with_index do |j, index| %>
 <div>
-	<div><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></div>
+	<h2><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></h2>
   <div>Description:<%= j.description %></div>
   <div>Origin:<%= j.origin %></div>
   <div>Destination:<%= j.destination %></div>
   <div>Containers needed:<%= j.job_containers %></div>
   <div>Price:<%= j.cost %></div>
 </div>
-<hr>
+<h4>Scheduled Pickups</h4>
+	<% j.schedules.each do |s| %>
+		<div>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
+		<div>Boat:<%= Boat.find(s.boat_id).name %></div>
+		<div>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
+		<hr>
+	<% end %>
 <% end %>

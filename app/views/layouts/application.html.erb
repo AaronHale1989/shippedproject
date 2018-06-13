@@ -15,6 +15,21 @@
     <img id="boat" src="https://thumbs.dreamstime.com/b/cartoon-boat-19593732.jpg" height="70px" width="70px" >
 <nav>
 
+  <li> <a href="/">Home</a></li>
+
+  <% if user_signed_in? %>
+  <li> <a href="/users/<%= current_user.id %>">User Page</a> </li>
+    <li><a href="/boats/new">Create Boat</a></li>
+    <li><a href="/boats">Boat List</a></li>
+    <li><a href="/jobs/new">Create Job</a></li>
+    <li><%= link_to "Log Out", destroy_user_session_path, {method: "delete"} %></li>
+  <% end %>
+
+  <% if !user_signed_in? %>
+    <li><a href="/users/sign_up">Sign Up</a></li>
+    <li> <a href="/users/sign_in">Log In</a> </li>
+  <% end %>
+
 <section class="hero is-primary is-medium">
 	  <!-- Hero head: will stick at the top -->
 	  <div class="hero-head">
