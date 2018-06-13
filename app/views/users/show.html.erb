@@ -2,26 +2,24 @@
 <%=@user.username%>
 <div> <%= link_to 'Edit Profile Information', edit_user_registration_path %></div>
 
-
-
-<h2 class="subtitle is-5"><strong><%= @user.jobs.count %></strong> Jobs</h2>
-<%= render @user.jobs %>
-    <hr />
-     <%= render 'job/index' %>
-</div>
-<h4>Scheduled Pickups</h4>
-	<% j.schedules.each do |s| %>
-		<div>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
-		<div>Boat:<%= Boat.find(s.boat_id).name %></div>
-		<div>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
-		<hr>
-	<% end %>
+<h2>Your Job Postings</h2>
+<% @user.jobs.each_with_index do |j, index| %>
+  <h3><a href='/jobs/<%= Job.find(j.id) %>'><%= index + 1 %>. <%= j.name %></a></h3>
+  <% j.schedules.each do |s| %>
+    <div>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
+    <div>Boat:<%= Boat.find(s.boat_id).name %></div>
+    <div>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
+    <hr>
+  <% end %>
 <% end %>
 
 <hr>
 <h2>Your Boats</h2>
+
 <% @user.boats.each_with_index do |b, index| %>
-<div> <%= image_tag b.image.url(:thumb) %></div>
+<% if b.image.exists? %>
+  <div> <%= image_tag b.image.url(:thumb) %></div>
+<% end %>
   <h2><a href='/boats/<%= b.id %>'><%= index + 1 %>. <%= b.name %></a></h2>
 
   <h4>Scheduled Trips</h4>
@@ -31,4 +29,5 @@
     <div>Cost: <%= Job.find(s.job_id).cost %></div>
     <div>Scheduled start date: <%= s.start.strftime("%m/%d/%Y") %></div>
   <% end %>
+
 <% end %>
