@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   def index
     @jobs = Job.all
-    # @job = 
+    # @job =
   end
 
   def new
@@ -12,7 +12,7 @@ class JobsController < ApplicationController
     j = Job.new(job_params)
     j.user_id = current_user.id
   if j.save
-    redirect_to "/jobs/new"
+    redirect_to "/"
   else
     render "/jobs/new"
   end
