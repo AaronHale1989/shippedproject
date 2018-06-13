@@ -21,6 +21,7 @@
 <hr>
 <h2>Your Boats</h2>
 <% @user.boats.each_with_index do |b, index| %>
+<div> <%= image_tag b.image.url(:thumb) %></div>
   <h2><a href='/boats/<%= b.id %>'><%= index + 1 %>. <%= b.name %></a></h2>
 
   <h4>Scheduled Trips</h4>
