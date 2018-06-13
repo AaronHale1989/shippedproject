@@ -4,20 +4,23 @@
 
  <div class= "field"> 
     <div class= "control">
-     Name: <%= f.text_field :name, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+     <textarea class="textarea is-primary" type="text" placeholder="Name"
+      <%= f.text_field :name%></textarea>
    </div>
   </div>
 
    <div class= "field"> 
       <div class= "control">
-       Location: <%= f.text_field :location, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %> 
+      <textarea class="textarea is-primary" type="text" placeholder="Input Location"
+      <%= f.text_field :location%></textarea>
       </div>
     <div>
     <hr>
   
     <div class= "field"> 
       <div class= "control">
-        <%= f.text_field :boat_containers, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %> 
+        <textarea class="textarea is-primary" type="text" placeholder="Container Compacity"
+      <%= f.text_field :boat_containers%></textarea>
       </div>
     </div>
       
