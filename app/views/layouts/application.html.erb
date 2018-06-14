@@ -16,13 +16,14 @@
 		</div>
 
 <nav>
-<section class="hero is-link">
+<section class="hero is-large has-bg-img">
 	  <!-- Hero head: will stick at the top -->
 	  <div class="hero-head">
 	    <nav class="navbar">
 	      <div class="container">
 	        <div class="navbar-brand">
-	          <%= link_to 'Home', root_path, class: "navbar-item" %>
+					 <%= link_to 'Home', root_path, class: "navbar-item" %>
+					       <div class="a"> <%= image_tag "lookout2.png" %></div>
 	          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
 	            <span></span>
 	            <span></span>
@@ -32,17 +33,23 @@
 	        <div id="navbarMenuHeroA" class="navbar-menu">
 	          <div class="navbar-end">
               <% if user_signed_in? %>
-						 	<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
-							<%= link_to "Profile Page", "/users/current_user.id", class:"navbar-item" %>
-                <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
-                <%= link_to "Boats List", boats_path, class:"navbar-item" %>
-                <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"navbar-item" %>
-              <% end %>
+						  	<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
+						      	<div class="a"> <%= image_tag "lookout2.png" %></div>
+				        <%= link_to "Profile Page", "/users/current_user.id", class:"navbar-item" %>
+						       	<div class="a">	<%= image_tag "anchor.png" %></div>
+			          <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
+						       <div class="a">	<%= image_tag "anchor.png" %></div>
+				        <%= link_to "Boats List", boats_path, class:"navbar-item" %>
+					       	 <div class="a">	<%= image_tag "boat.png" %></div>
+			          <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"navbar-item" %>
+					       	 <div class="a">	<%= image_tag "boat.png" %></div>
+			      <% end %>
 							<% if !user_signed_in? %>
-							<%= link_to "Sign Up", new_user_registration_path, class:"navbar-item" %>
-							<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
-              <% end %>
-
+								<%= link_to "Sign Up", new_user_registration_path, class:"navbar-item" %>
+											<div class="a">   <%= image_tag "lookout2.png" %></div>
+								<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
+												<div class="a">  	<%= image_tag "boat.png" %></div>
+								<% end %>
 	          </div>
 	        </div>
 	      </div>
