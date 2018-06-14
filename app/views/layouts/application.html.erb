@@ -5,12 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   </head>
   <body>
     <div id="boat"><%= image_tag "boat.png" %></div>
-    <div class = "has text cented">Steam Cargo</div>
+
+		<div class='has-text-centered is-uppercase'>
+		Steam Cargo
+		</div>
+	
 <nav>
 
 <section class="hero is-warning is-medium">
@@ -29,16 +33,15 @@
 	        <div id="navbarMenuHeroA" class="navbar-menu">
 	          <div class="navbar-end">
               <% if user_signed_in? %>
-              <%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
-                <a href="/users/<%=current_user.id%>">Profile Page</a>
-                <a href="/users/sign_out"></a>
+						 	<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
+							<%= link_to "Profile Page", "/users/current_user.id", class:"navbar-item" %>
                 <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
                 <%= link_to "Boats List", boats_path, class:"navbar-item" %>
-                <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+                <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"navbar-item" %>
               <% end %>
-              <% if !user_signed_in? %>
-                <li><a href="/users/sign_up">Sign Up</a></li>
-                <li> <a href="/users/sign_in">Log In</a> </li>
+							<% if !user_signed_in? %>
+							<%= link_to "Sign Up", new_user_registration_path, class:"navbar-item" %>
+							<%= link_to "Log In", new_user_session_path, class:"navbar-item" %> 
               <% end %>
 
 	          </div>
