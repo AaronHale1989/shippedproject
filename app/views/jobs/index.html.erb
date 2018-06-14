@@ -1,29 +1,31 @@
 
+<div class='title is-1 has-text-centered'>Current Jobs</div>
+
 <% content_for :page_title, "All Jobs" %>
 
 <% @jobs.each_with_index do |j, index| %>
-<div class = "box">
-<div class= "title is-5">
-	<div class= "has-text-primary, hero is-black"><h2><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></h2></div>
-	<hr>
-  <div>Description:<%= j.description %></div>
-  <div>Origin:<%= j.origin %></div>
-  <div>Destination:<%= j.destination %></div>
-  <div>Containers needed:<%= j.job_containers %></div>
-  <div>Price:<%= j.cost %></div>
-</div>
-<br>
-<h4>Scheduled Pickups</h4>
-	<% j.schedules.each do |s| %>
-		<div>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
-		<div>Boat:<%= Boat.find(s.boat_id).name %></div>
-		<div>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
-		<hr>
+
+<div class= 'card'>
+<div class='has-text-centered'>
+	<% if user_signed_in? %>
+		<h2 class='title is-4'><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></h2>
+	<% else %>
+		<h2 class='title is-3'><%= index + 1 %>. <%= j.name %></h2>
 	<% end %>
-<% end %>
-
-
-<div class="whatever">
-  Whatever
-
+  <div><div class='label'>Description:</div><%= j.description %></div>
+  <div><div class='label'>Origin:</div><%= j.origin %></div>
+  <div><div class='label'>Destination:</div><%= j.destination %></div>
+  <div><div class='label'>Containers needed:</div><%= j.job_containers %></div>
+  <div><div class='label'>Price:</div><%= j.cost %></div>
 </div>
+<h4 class='title is-5 has-text-centered'>Scheduled Pickups</h4>
+
+	<% j.schedules.each do |s| %>
+	<div class='has-text-centered'>
+		<div><div class='label'>Scheduled start date:</div><%= s.start.strftime("%m/%d/%Y") %></div>
+		<div><div class='label'>Boat:</div><%= Boat.find(s.boat_id).name %></div>
+		<div><div class='label'>Containers:</div><%= Boat.find(s.boat_id).boat_containers %></div>
+	</div>
+	<% end %>
+</div>
+<% end %>
