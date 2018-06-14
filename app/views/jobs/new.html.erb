@@ -1,17 +1,18 @@
 <% content_for :page_title, "Post New Job" %>
 
 <% @job = Job.new %>
+
 <%= form_for @job do |f| %>
 
-  <div class= "field"> 
+  <div class= "field">
     <div class= "textarea is-medium">
      <textarea class="textarea is-primary is-medium" type="text" placeholder="Title"
       <%= f.text_field :name%></textarea>
    </div>
   </div>
 <br>
- 
- <div class= "field"> 
+
+ <div class= "field">
     <div class= "textarea is-medium">
      <textarea class="textarea is-primary is-medium" type="text" placeholder="describe details of job"
       <%= f.text_field :description%></textarea>
@@ -19,7 +20,7 @@
   </div>
 <br>
 
- <div class= "field"> 
+ <div class= "field">
     <div class= "textarea is-medium">
      <textarea class="textarea is-primary is-medium" type="text" placeholder="origin of Pickup"
       <%= f.text_field :origin%></textarea>
@@ -27,7 +28,7 @@
   </div>
 <br>
 
- <div class= "field"> 
+ <div class= "field">
     <div class= "textarea is-medium">
      <textarea class="textarea is-primary is-medium" type="text" placeholder="Destination of transport/dropoff"
       <%= f.text_field :destination%></textarea>
@@ -35,7 +36,7 @@
   </div>
 <br>
 
- <div class= "field"> 
+ <div class= "field">
     <div class= "textarea is-medium">
      <textarea class="textarea is-primary is-medium" type="text" placeholder="number of containers being transported"
       <%= f.text_field :job_containers%></textarea>
@@ -43,7 +44,7 @@
   </div>
 <br>
 
- <div class= "field"> 
+ <div class= "field">
     <div class= "textarea is-medium">
      <textarea class="textarea is-primary is-medium" type="text" placeholder="Pay: must be more than $100"
       <%= f.text_field :cost%></textarea>
@@ -56,9 +57,3 @@
 
 
 <% end %>
-
-
-
-
-
-
