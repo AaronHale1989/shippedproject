@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShippedDevise</title>
+    <title>Shipped!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,13 +14,9 @@
 		<div class='has-text-centered is-uppercase'>
 		Steam Cargo
 		</div>
-		
-	
-		<div id="boat"><%= image_tag "boat.jpg" %></div>
 
 <nav>
-
-<section class="hero is-warning is-medium">
+<section class="hero is-link">
 	  <!-- Hero head: will stick at the top -->
 	  <div class="hero-head">
 	    <nav class="navbar">
@@ -44,7 +40,7 @@
               <% end %>
 							<% if !user_signed_in? %>
 							<%= link_to "Sign Up", new_user_registration_path, class:"navbar-item" %>
-							<%= link_to "Log In", new_user_session_path, class:"navbar-item" %> 
+							<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
               <% end %>
 
 	          </div>
