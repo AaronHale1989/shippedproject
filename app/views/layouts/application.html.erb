@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShippedDevise</title>
+    <title>Shipped!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,9 +14,9 @@
 		<div class='has-text-centered is-uppercase'>
 		Steam Cargo
 		</div>
-		
-	
-		<div id="boat"><%= image_tag "boat.jpg" %></div>
+
+
+		<div><%= image_tag "anchor.jpg" %></div>
 
 <nav>
 
@@ -44,7 +44,7 @@
               <% end %>
 							<% if !user_signed_in? %>
 							<%= link_to "Sign Up", new_user_registration_path, class:"navbar-item" %>
-							<%= link_to "Log In", new_user_session_path, class:"navbar-item" %> 
+							<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
               <% end %>
 
 	          </div>
