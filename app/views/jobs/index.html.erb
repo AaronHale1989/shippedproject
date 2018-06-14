@@ -4,7 +4,7 @@
 <% @jobs.each_with_index do |j, index| %>
 <div class = "box">
 <div class= "title is-5">
-	<h2><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></h2>
+	<div class= "has-text-primary, hero is-black"><h2><a href='/jobs/<%= j.id %>'><%= index + 1 %>. <%= j.name %></a></h2></div>
 	<hr>
   <div>Description:<%= j.description %></div>
   <div>Origin:<%= j.origin %></div>
