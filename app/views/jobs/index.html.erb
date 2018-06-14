@@ -1,7 +1,10 @@
+
 <div class='title is-1 has-text-centered'>Current Jobs</div>
 
+<% content_for :page_title, "All Jobs" %>
 
 <% @jobs.each_with_index do |j, index| %>
+
 <div class= 'card'>
 <div class='has-text-centered'>
 	<% if user_signed_in? %>
@@ -16,6 +19,7 @@
   <div><div class='label'>Price:</div><%= j.cost %></div>
 </div>
 <h4 class='title is-5 has-text-centered'>Scheduled Pickups</h4>
+
 	<% j.schedules.each do |s| %>
 	<div class='has-text-centered'>
 		<div><div class='label'>Scheduled start date:</div><%= s.start.strftime("%m/%d/%Y") %></div>
