@@ -17,7 +17,7 @@
   <div><div class='label'>Destination:</div><%= j.destination %></div>
   <div><div class='label'>Containers needed:</div><%= j.job_containers %></div>
   <div><div class='label'>Price:</div><%= j.cost %></div>
-</div>
+
 <h4 class='title is-5 has-text-centered'>Scheduled Pickups</h4>
 
 	<% j.schedules.each do |s| %>
@@ -26,5 +26,6 @@
 		<div><div class='label'>Boat:</div><%= Boat.find(s.boat_id).name %></div>
 		<div><div class='label'>Containers:</div><%= Boat.find(s.boat_id).boat_containers %></div>
 	</div>
+</div>
 	<% end %>
 <% end %>

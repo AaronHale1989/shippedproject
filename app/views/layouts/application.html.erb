@@ -15,7 +15,7 @@
 		Steam Cargo
 		</div>
     <div class="waves">
-    
+
     </div>
 
 <nav>
@@ -36,7 +36,7 @@
 	          <div class="navbar-end">
               <% if user_signed_in? %>
 						 	<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
-							<%= link_to "Profile Page", "/users/current_user.id", class:"navbar-item" %>
+							<a href "/users/<%= current_user.id %>" class="navbar-item">Profile</a>
                 <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
                 <%= link_to "Boats List", boats_path, class:"navbar-item" %>
                 <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"navbar-item" %>
