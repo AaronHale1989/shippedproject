@@ -1,6 +1,8 @@
-<h2>List of Boats</h2>
+<% content_for :page_title, "Boat List" %>
 
 <% @boats.each do |b| %>
+
+<div class= 'card'>
   <% if b.image.exists? %>
     <div> <%= image_tag b.image.url(:thumb) %></div>
     <% end %>
@@ -12,3 +14,4 @@
 
     <hr>
 <% end %>
+</div>
