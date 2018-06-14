@@ -1,6 +1,7 @@
 <h2><%=@boat.name%></h2>
-<div> <%= image_tag @boat.image.url(:thumb) %></div>
-
+<% if @boat.image.exists? %>
+  <div> <%= image_tag @boat.image.url(:thumb) %></div>
+<% end %>
 <div>Location: <%= @boat.location %></div>
 <div>Capacity:  <%= @boat.boat_containers %></div>
 

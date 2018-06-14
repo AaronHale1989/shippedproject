@@ -17,4 +17,6 @@
  @import "bulma";
  @import "body";
 
- 
+.centered{
+  text-align: center;
+}
