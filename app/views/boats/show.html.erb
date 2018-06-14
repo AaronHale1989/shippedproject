@@ -1,3 +1,7 @@
+<% content_for :page_title, "Edit Boat" %>
+
+
+<div class= 'card'>
 <h2><%=@boat.name%></h2>
 <% if @boat.image.exists? %>
   <div> <%= image_tag @boat.image.url(:thumb) %></div>
@@ -14,4 +18,5 @@
   <%= f.file_field :image, class: 'form-control' %>
   <%= f.submit 'Upload Photo', class: 'btn btn-default' %>
   <% end %>
+</div>
 </div>

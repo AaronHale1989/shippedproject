@@ -2,6 +2,7 @@
 
 
 <% @job = Job.find(params[:id]) %>
+<div class= 'card'>
 <div>
 <%= form_for @job do |f| %>
 <div>Title: <%= f.text_field :name %></div>
@@ -14,4 +15,5 @@
 <%end%>
 <%= link_to 'Delete', job_path(@job), method: :delete,
                          data: { confirm: 'Are you sure?' } %>
+</div>
 </div>
