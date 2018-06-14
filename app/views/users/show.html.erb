@@ -1,27 +1,29 @@
 <% content_for :page_title, "Profile" %>
-<div class= 'card'>
-<%=@user.username%>
-<div> <%= link_to 'Edit Profile Information', edit_user_registration_path %></div>
+
+<div class='centered'><%=@user.username%></div>
+<div class='centered'> <%= link_to 'Edit Profile Information', edit_user_registration_path %></div>
 
 
-<h2>Your Job Postings</h2>
+<h2 class ='centered'>Your Job Postings</h2>
 <% @user.jobs.each_with_index do |j, index| %>
-
-  <h3><a href='/jobs/<%= Job.find(j.id) %>'><%= index + 1 %>. <%= j.name %></a></h3>
+<div class= 'card'>
+  <h3><a href='/jobs/<%= Job.find(j.id).id %>'><%= index + 1 %>. <%= j.name %></a></h3>
   <% j.schedules.each do |s| %>
     <div class='label'>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
     <div class='label'>Boat:<%= Boat.find(s.boat_id).name %></div>
     <div class='label'>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
     <hr>
   <% end %>
+  </div>
 <% end %>
-</div>
 
-<hr>
-<div class= 'card'>
-<h2>Your Boats</h2>
+
+
+
+<h2 class='centered'>Your Boats</h2>
 
 <% @user.boats.each_with_index do |b, index| %>
+<div class= 'card'>
 <% if b.image.exists? %>
   <div> <%= image_tag b.image.url(:thumb) %></div>
 <% end %>
@@ -34,6 +36,5 @@
     <div class='label'>Cost: <%= Job.find(s.job_id).cost %></div>
     <div class='label'>Scheduled start date: <%= s.start.strftime("%m/%d/%Y") %></div>
   <% end %>
-
-<% end %>
 </div>
+<% end %>
