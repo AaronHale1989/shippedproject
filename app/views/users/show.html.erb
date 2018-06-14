@@ -1,20 +1,24 @@
 <% content_for :page_title, "Profile" %>
-
+<div class= 'card'>
 <%=@user.username%>
 <div> <%= link_to 'Edit Profile Information', edit_user_registration_path %></div>
 
+
 <h2>Your Job Postings</h2>
 <% @user.jobs.each_with_index do |j, index| %>
+
   <h3><a href='/jobs/<%= Job.find(j.id) %>'><%= index + 1 %>. <%= j.name %></a></h3>
   <% j.schedules.each do |s| %>
-    <div>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
-    <div>Boat:<%= Boat.find(s.boat_id).name %></div>
-    <div>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
+    <div class='label'>Scheduled start date:<%= s.start.strftime("%m/%d/%Y") %></div>
+    <div class='label'>Boat:<%= Boat.find(s.boat_id).name %></div>
+    <div class='label'>Containers:<%= Boat.find(s.boat_id).boat_containers %></div>
     <hr>
   <% end %>
 <% end %>
+</div>
 
 <hr>
+<div class= 'card'>
 <h2>Your Boats</h2>
 
 <% @user.boats.each_with_index do |b, index| %>
@@ -25,10 +29,11 @@
 
   <h4>Scheduled Trips</h4>
   <% b.schedules.each do |s| %>
-    <div><a href='/jobs/<%= Job.find(s.job_id).id %>'>Job: <%= Job.find(s.job_id).name %></a></div>
-    <div>Origin: <%= Job.find(s.job_id).origin %></div>
-    <div>Cost: <%= Job.find(s.job_id).cost %></div>
-    <div>Scheduled start date: <%= s.start.strftime("%m/%d/%Y") %></div>
+    <div class='label'><a href='/jobs/<%= Job.find(s.job_id).id %>'>Job: <%= Job.find(s.job_id).name %></a></div>
+    <div class='label'>Origin: <%= Job.find(s.job_id).origin %></div>
+    <div class='label'>Cost: <%= Job.find(s.job_id).cost %></div>
+    <div class='label'>Scheduled start date: <%= s.start.strftime("%m/%d/%Y") %></div>
   <% end %>
 
 <% end %>
+</div>
