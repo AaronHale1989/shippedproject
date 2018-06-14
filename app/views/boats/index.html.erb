@@ -1,8 +1,7 @@
-<% content_for :page_title, "Boat List" %>
+<h2>List of Boats</h2>
 
 <% @boats.each do |b| %>
-
-<div class= 'card'>
+  <div class =" has-text-centered" >
   <% if b.image.exists? %>
     <div> <%= image_tag b.image.url(:thumb) %></div>
     <% end %>
@@ -14,4 +13,3 @@
 
     <hr>
 <% end %>
-</div>
