@@ -1,7 +1,7 @@
 <h2>List of Boats</h2>
 
 <% @boats.each do |b| %>
-  <div class =" has-text-centered" >
+  <div class =" has-text-right" >
   <% if b.image.exists? %>
     <div> <%= image_tag b.image.url(:thumb) %></div>
     <% end %>
