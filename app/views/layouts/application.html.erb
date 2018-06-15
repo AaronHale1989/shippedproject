@@ -10,15 +10,14 @@
     <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Dhurjati|Diplomata+SC|Holtwood+One+SC|Stardos+Stencil" rel="stylesheet">
   </head>
   <body>
- 
-
 		<div id='pg-title' class='has-text-centered is-uppercase'>
 		Steam Cargo
 		</div>
    <div id="boat"><%= image_tag "boat.png" %></div>
     <div class="waves">
-
     </div>
+    # <%= audio_tag "horn.wav", id= "my_audio", autoplay: true %>
+
 
 <nav>
 <section class="hero is-medium has-bg-img has-text-white">
@@ -36,8 +35,9 @@
 	          </span>
 	        </div>
 	        <div id="navbarMenuHeroA" class="navbar-menu">
-	          <div class="navbar-end">
-              <% if user_signed_in? %>
+					<div class="navbar-start">
+					<div class="navbar-item is-hoverable">
+					<% if user_signed_in? %>
 						  	<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
 						      	<div class="a"> <%= image_tag "lookout2.png" %></div>
 				        <%= link_to "Profile Page", "/users/#{current_user.id}", class:"navbar-item" %>
@@ -55,6 +55,7 @@
 								<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
 												<div class="a">  	<%= image_tag "boat.png" %></div>
 								<% end %>
+								</div>
 	          </div>
 	        </div>
 	      </div>
