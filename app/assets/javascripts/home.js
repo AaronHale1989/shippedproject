@@ -1,10 +1,12 @@
 
 
 
-
-
+window.onload = function() {
+  document.getElementById("my_audio").play();
+}
 
 var boat = document.getElementById("boat")
+
 
 boat.style.position = "relative"
 boat.style.width = "70px"

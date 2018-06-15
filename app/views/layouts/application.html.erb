@@ -10,18 +10,17 @@
     <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Dhurjati|Diplomata+SC|Holtwood+One+SC|Stardos+Stencil" rel="stylesheet">
   </head>
   <body>
-    <div id="boat"><%= image_tag "boat.png" %></div>
-
 		<div id='pg-title' class='has-text-centered is-uppercase'>
 		Steam Cargo
 		</div>
-
+   <div id="boat"><%= image_tag "boat.png" %></div>
     <div class="waves">
-
     </div>
+   
+
 
 <nav>
-<section class="hero is-medium has-bg-img">
+<section class="hero is-medium has-bg-img has-text-white">
 	  <!-- Hero head: will stick at the top -->
 	  <div class="hero-head">
 	    <nav class="navbar">
@@ -36,11 +35,12 @@
 	          </span>
 	        </div>
 	        <div id="navbarMenuHeroA" class="navbar-menu">
-	          <div class="navbar-end">
-              <% if user_signed_in? %>
+					<div class="navbar-start">
+					<div class="navbar-item is-hoverable">
+					<% if user_signed_in? %>
 						  	<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
 						      	<div class="a"> <%= image_tag "lookout2.png" %></div>
-                <a class='navbar-item'href="/users/<%=current_user.id%>">Profile</a>
+				        <%= link_to "Profile Page", "/users/#{current_user.id}", class:"navbar-item" %>
 						       	<div class="a">	<%= image_tag "anchor.png" %></div>
 			          <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
 						       <div class="a">	<%= image_tag "anchor.png" %></div>
@@ -56,6 +56,7 @@
 								<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
 												<div class="a">  	<%= image_tag "boat.png" %></div>
 								<% end %>
+								</div>
 	          </div>
 	        </div>
 	      </div>
