@@ -4,7 +4,7 @@
 <div class='centered'> <%= link_to 'Edit Profile Information', edit_user_registration_path %></div>
 
 
-<h2 class ='centered'>Your Job Postings</h2>
+<h2 class ='centered is-size-4' class='heading'>Your Job Postings</h2>
 <% @user.jobs.each_with_index do |j, index| %>
 <div class= 'card'>
   <h3><a href='/jobs/<%= Job.find(j.id).id %>'><%= index + 1 %>. <%= j.name %></a></h3>

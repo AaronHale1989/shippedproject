@@ -2,7 +2,7 @@
 
 
 window.onload = function() {
-   document.getElementById("my_audio").play();
+  document.getElementById("my_audio").play();
 }
 
 var boat = document.getElementById("boat")

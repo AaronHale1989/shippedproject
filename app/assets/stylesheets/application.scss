@@ -23,7 +23,7 @@
     background-size: cover;
     /* background: linear-gradient(to bottom right,#002f4b,#dc4225); */
 }
-    
+
 .a{
     width: 40px;
     height: 40px;
@@ -34,7 +34,6 @@ a:hover{
         cursor: pointer;
         animation-name: bounce;
         -moz-animation-name: bounce;
-      opacity: 0.6;
  }
  .card{
    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -49,6 +48,9 @@ a:hover{
  }
 .centered{
   text-align: center;
+}
+.heading{
+  font-size: 30px;
 }
 #pg-title{
   font-size: 60px;
