@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Dhurjati|Diplomata+SC|Holtwood+One+SC|Stardos+Stencil" rel="stylesheet">
   </head>
@@ -17,66 +17,63 @@
     <div class="waves">
     </div>
    
-    <%= audio_tag id= "my_audio" src="horn.wav"></audio> 
 
-
-<nav>
-<section class="hero is-medium has-bg-img has-text-white">
-	  <!-- Hero head: will stick at the top -->
-	  <div class="hero-head">
-	    <nav class="navbar">
-	      <div class="container">
-	        <div class="navbar-brand">
-					 <%= link_to 'Home', root_path, class: "navbar-item" %>
-					       <div class="a"> <%= image_tag "lookout2.png" %></div>
-	          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-	            <span></span>
-	            <span></span>
-	            <span></span>
-	          </span>
-	        </div>
-	        <div id="navbarMenuHeroA" class="navbar-menu">
-					<div class="navbar-start">
-					<div class="navbar-item is-hoverable">
-					<% if user_signed_in? %>
-						  	<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
-						      	<div class="a"> <%= image_tag "lookout2.png" %></div>
-				        <%= link_to "Profile Page", "/users/#{current_user.id}", class:"navbar-item" %>
-						       	<div class="a">	<%= image_tag "anchor.png" %></div>
-			          <%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
-						       <div class="a">	<%= image_tag "anchor.png" %></div>
-				        <%= link_to "Boats List", boats_path, class:"navbar-item" %>
-					       	 <div class="a">	<%= image_tag "boat.png" %></div>
-                   <a class='navbar-item' href="/schedules">Schedule</a>
-			          <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"navbar-item" %>
-					       	 <div class="a">	<%= image_tag "boat.png" %></div>
-			      <% end %>
-							<% if !user_signed_in? %>
-								<%= link_to "Sign Up", new_user_registration_path, class:"navbar-item" %>
+	  <nav>
+			<section class="hero is-medium has-bg-img has-text-white">
+					<!-- Hero head: will stick at the top -->
+					<div class="hero-head">
+						<nav class="navbar">
+							<div class="container">
+								<div class="navbar-brand">
+								<%= link_to 'Home', root_path, class: "navbar-item" %>
+								<div class="a"> <%= image_tag "lookout2.png" %></div>
+								<span class="navbar-burger burger" data-target="navbarMenuHeroA">
+								<span></span>
+								<span></span>
+								<span></span>
+								</span>
+				</div>
+						<div id="navbarMenuHeroA" class="navbar-menu">
+							<div class="navbar-start">
+								<div class="navbar-item is-hoverable">
+									<% if user_signed_in? %>
+										<%= link_to "Create New Job", new_job_path, class:"navbar-item" %>
+											<div class="a"> <%= image_tag "lookout2.png" %></div>
+										<%= link_to "Profile Page", "/users/#{current_user.id}", class:"navbar-item" %>
+											<div class="a">	<%= image_tag "anchor.png" %></div>
+										<%= link_to "Create Boat", new_boat_path, class:"navbar-item" %>
+											<div class="a">	<%= image_tag "anchor.png" %></div>
+										<%= link_to "Boats List", boats_path, class:"navbar-item" %>
+											<div class="a">	<%= image_tag "boat.png" %></div>
+											<a class='navbar-item' href="/schedules">Schedule</a>
+										<%= link_to'Logout', destroy_user_session_path, method: :delete, class:"navbar-item" %>
+											<div class="a">	<%= image_tag "boat.png" %></div>
+									<% end %>
+									<% if !user_signed_in? %>
+										<%= link_to "Sign Up", new_user_registration_path, class:"navbar-item" %>
 											<div class="a">   <%= image_tag "lookout2.png" %></div>
-								<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
-												<div class="a">  	<%= image_tag "boat.png" %></div>
-								<% end %>
+										<%= link_to "Log In", new_user_session_path, class:"navbar-item" %>
+											<div class="a">  	<%= image_tag "boat.png" %></div>
+									<% end %>
 								</div>
-	          </div>
-	        </div>
-	      </div>
-	    </nav>
-	  </div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
 
-	  <!-- Hero content: will be in the middle -->
-	  <div class="hero-body">
-	    <div class="container has-text-centered">
-	      <h1 class="title">
-	        <%= yield :page_title %>
-	      </h1>
-	    </div>
-	  </div>
-	</section>
-    <%= yield %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= javascript_include_tag "home"%>
+			<!-- Hero content: will be in the middle -->
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<h1 class="title">
+						<%= yield :page_title %>
+					</h1>
+				</div>
+			</div>
+		</section>
+		<%= yield %>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		<%= javascript_include_tag "home"%>
   </body>
 </html>
